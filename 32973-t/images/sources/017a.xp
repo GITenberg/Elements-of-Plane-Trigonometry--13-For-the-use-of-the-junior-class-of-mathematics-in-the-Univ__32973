@@ -1,0 +1,82 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+
+void ray(const P& tail, const P& head, double t)
+{
+  line(tail, head + t*(head - tail));
+}
+
+int main()
+{
+  picture(P(-1,-4), P(4,2), "3.5 x 4.2in");
+
+  begin();
+  degrees();
+  bold();
+
+  double th1(-85), th2(60), th3(180);
+  P pa(cis(th1)), pb(cis(th2)), pc(cis(th3));
+
+  Segment AB(pc, pc + cis(th3 + 90));
+  Segment BC(pa, pa + cis(th1 + 90));
+  Segment CA(pb, pb + cis(th2 + 90));
+
+  P pA(AB*CA), pB(AB*BC), pC(CA*BC);
+
+  Segment BO(pB, pB+cis(90 + 0.5*(th1 + th3)));
+  Segment CO(pC, pC+cis(90 + 0.5*(th1 + th2)));
+
+  P O2(BO*CO);
+
+  triangle(pA, pB, pC);
+
+  P pA2(O2 + (pB - O2)%(pB - pC));
+  P pB2(O2 + (pC - O2)%(pC - pA));
+  P pC2(O2 + (pB - O2)%(pB - pA));
+
+  double rad(norm(pC2 - O2));
+
+  line(O, pa);
+  line(O, pb);
+  line(O, pc);
+
+  line(O, pA);
+  line(O, pB);
+  line(O, pC);
+
+  line(O2, pA2);
+  line(O2, pB2);
+  line(O2, pC2);
+
+  line(pA, O2);
+  line(pB, O2);
+  line(pC, O2);
+
+  ray(pA, pB2, 0.1);
+  ray(pA, pC2, 0.1);
+
+  dashed();
+  ellipse(O, E_1, E_2, 0, 360, 60);
+  ellipse(O2, rad*E_1, rad*E_2, th2 - 10, th3 + 10, 60);
+
+  label(pA, P(-2, 2), "$A$", tl);
+  label(pB, P(-2, 0), "$B$", l);
+  label(pC, P( 2, 2), "$C$", tr);
+
+  label(pa, P( 0,-4), "$a$", b);
+  label(pb, P( 2, 2), "$b$", tr);
+  label(pc, P(-4, 0), "$c$", l);
+
+  label(pA2, P( 2,-2), "$a'$", br);
+  label(pB2, P( 2, 2), "$b'$", tr);
+  label(pC2, P(-2, 0), "$c'$", l);
+
+  label(O, P(5,5), "$O$", r);
+  label(O2, P(0,-2), "$O'$", br);
+
+  tikz_format();
+  end();
+}

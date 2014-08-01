@@ -1,0 +1,54 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th(40);
+
+int main()
+{
+  picture(P(-1,-1), P(1,1), "4 x 4in");
+
+  begin();
+  degrees();
+  bold();
+  P pA(1,0), pB(cis(th)), pC(O), pD(Cos(th),0), pE(-1,0);
+  P pB2(cis(-th)), pF(0.5*(pB + pE)), pG(pF.x1(),0), pH(0.5*(pB2 + pE));
+  circle();
+
+  line(pE, pA);
+
+  line(pC, pB);
+  line(pC, pB2);
+  line(pC, pF);
+
+  line(pE, pB);
+  line(pE, pB2);
+
+  line(pB, pB2);
+  line(pF, pH);
+
+  double CD(norm(pD - pC)), EF(norm(pF - pE)), EG(norm(pG - pE));
+
+  dashed();
+  dash_size(6);
+  ellipse(pC, CD*E_1, CD*E_2, -th, th, 20);
+
+  ellipse(pE, EF*E_1, EF*E_2, -0.5*th, 0.5*th, 10);
+  ellipse(pE, EG*E_1, EG*E_2, -0.5*th, 0.5*th, 10);
+
+  label(pA, P( 2, 0), "$A$", r);
+  label(pB, P( 2, 4), "$B$", r);
+  label(pB2, P(2,-2), "$B'$", r);
+  label(pC, P(-2,-4), "$C$", b);
+
+  label(pD, P(-2,-4), "$D$", bl);
+  label(pE, P(-4, 0), "$E$", l);
+
+  label(pF, P(-2, 2), "$F$", t);
+  label(pG, P(-4,-4), "$G$", bl);
+  label(pH, P(-2,-2), "$H$", b);
+
+  tikz_format();
+  end();
+}

@@ -1,0 +1,18 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th;
+
+int main()
+{
+  picture(P(0,0), P(1,1), "2 x 2in");
+
+  begin();
+  degrees();
+  bold();
+
+  tikz_format();
+  end();
+}

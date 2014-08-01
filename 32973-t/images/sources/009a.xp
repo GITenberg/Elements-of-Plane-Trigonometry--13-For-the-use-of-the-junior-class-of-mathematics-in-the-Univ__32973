@@ -1,0 +1,71 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+int N(6);
+double th(80), dth(th/N);
+
+std::string mylab(int i)
+{
+  std::stringstream buf;
+  buf << "$A_{" << i << "}$";
+  return buf.str();
+}
+
+std::string mylab2(int i)
+{
+  std::stringstream buf;
+  buf << "$A_{" << i << "}'$";
+  return buf.str();
+}
+
+int main()
+{
+  picture(P(0,0), P(1,1.5), "3 x 4.5in");
+
+  begin();
+  degrees();
+  bold();
+  P O(0,0), pA(1,0), pB(cis(th)), AA1(cis(dth) - pA);
+
+  P curr(pA), pB1(pA + N*AA1), pB2(pA + P(0,th*M_PI/180));
+
+  arc(O, 1, 0, th);
+
+  line(O,pB);
+  line(pA, pB1);
+  line(pA, pB2);
+
+  for (int i=1; i<=N; ++i)
+    {
+      P next(cis(i*dth));
+      line(O, curr);
+      line(O, next);
+      line(curr, next);
+
+      if (i != 6)
+	label(next, P(2*(i - 4), -6), mylab(i), b);
+
+      if (i != 1 && i != 6)
+	label(pA + i*AA1, P(-2, 6*(3.5 - i)), mylab2(i), l);
+
+      curr = next;
+    }
+
+  line(O, pB2);
+
+  dashed();
+  dash_size(6);
+  line(O, pB1);
+
+  label(O, P(-2,-4), "$O$", bl);
+  label(pA, P(0,-4), "$A$", b);
+  label(pB, P(-2,0), "$B$", tl);
+  label(pB1, P(-2,0), "$B'$", tl);
+  label(pB2, P(2,0), "$B''$", r);
+
+  label(pB2, P(-2,2), "$T$", tl);
+
+  tikz_format();
+  end();
+}

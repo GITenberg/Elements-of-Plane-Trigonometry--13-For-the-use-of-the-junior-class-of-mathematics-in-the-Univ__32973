@@ -1,0 +1,41 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th(55), th2(-30);
+
+int main()
+{
+  picture(P(-1,-1), P(1,1), "4 x 4in");
+
+  begin();
+  degrees();
+  bold();
+
+  P pB(cis(th)), pE(1,0), pD(-1,0), pF(cis(th2));
+  Segment DE(pD, pE), BF(pB, pF);
+  P pA(DE*BF);
+
+  circle();
+  line(O, pB);
+  line(O, pF);
+
+  line(pD, pE);
+
+  line(pB, pD);
+  line(pB, pE);
+  line(pB, pF);
+
+  label(pA, P(0,-3), "$A$", bl);
+  label(pB, P(0, 2), "$B$", tr);
+
+  label(O, P(-2,-3), "$C$", bl);
+  label(pD, P( 2,-3), "$D$", br);
+
+  label(pE, P( 2, 0), "$E$", r);
+  label(pF, P( 0,-2), "$F$", br);
+
+  tikz_format();
+  end();
+}

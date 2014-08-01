@@ -1,0 +1,29 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+double th(65);
+
+int main()
+{
+  picture(P(0,0), P(1,1), "2 x 2in");
+
+  begin();
+  degrees();
+  bold();
+  P O(0,0), pA(1,0), pB(0,1), pC(cis(th));
+
+  line(O,pA);
+  line(O,pB);
+  line(O,pC);
+
+  arc(O, 1, 0, 90);
+
+  label(O, P(-2,-4), "$O$", bl);
+  label(pA, P(0,-4), "$A$", b);
+  label(pB, P(-4,0), "$B$", l);
+  label(pC, P(2, 2), "$C$", tr);
+
+  tikz_format();
+  end();
+}

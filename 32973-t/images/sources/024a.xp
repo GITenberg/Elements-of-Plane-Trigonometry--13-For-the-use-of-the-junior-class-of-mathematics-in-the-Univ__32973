@@ -1,0 +1,49 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th(45);
+
+int main()
+{
+  picture(P(-1,-1), P(1,1), "4 x 4in");
+
+  begin();
+  degrees();
+  bold();
+  P pA(1,0), pA2(-1,0), pB(cis(th)), pB1(cis(180-th)), pB2(-pB), pB3(-pB1);
+  P pC(0,1), pC2(0,-1), pD(Cos(th),0), pD2(-pD), pE(0,Sin(th)), pE2(-pE);
+
+  circle();
+  line(pA, pA2);
+  line(pB, pB2);
+  line(pC, pC2);
+  line(pB1, pB3);
+
+  line(pB, pB3);
+  line(pB1, pB2);
+
+  line(pB, pE);
+
+  label(pA, P(-2,2), "$A$", tl);
+  label(pA2, P(2,-2), "$A'$", br);
+
+  label(pB, P(2,2), "$B$", tr);
+  label(pB1, P(-2,2), "$B'$", tl);
+  label(pB2, P(-2,-2), "$B''$", bl);
+  label(pB3, P(2,-2), "$B'''$", br);
+
+  label(pC, P(-2,-2), "$C$", bl);
+  label(pC2, P(-2,2), "$C'$", tl);
+
+  label(pD, P(2,-2), "$D$", br);
+  label(pD2, P(2,-2), "$D'$", br);
+
+  label(pE, P(2,-2), "$E$", br);
+
+  label(O, P(10, 6), "$O$", r);
+
+  tikz_format();
+  end();
+}

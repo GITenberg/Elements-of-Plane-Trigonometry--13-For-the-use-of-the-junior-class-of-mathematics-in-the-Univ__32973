@@ -1,0 +1,41 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th1(20), th2(35);
+
+int main()
+{
+  picture(P(0,0), P(1,1), "2.5 x 2.5in");
+
+  begin();
+  degrees();
+  bold();
+
+  P pA(1,0), pB(cis(th1)), pD(cis(th1 + th2)), pE(pD&E_1);
+  P pF(pD - (pD % pB));
+
+  line(O, pA);
+  line(O, pB);
+  line(O, pD);
+
+  line(pD, pE);
+  line(pD, pF);
+  arc(O, 1, 0, th1 + th2);
+
+  dashed();
+  dash_size(6);
+  line(pF, pF&E_1);
+  line(pF, P(pE.x1(), pF.x2()));
+
+  label(pA, P(2,0), "$A$", r);
+  label(pB, P(2,0), "$B$", tr);
+  label(O,  P(-2,-2), "$C$", b);
+  label(pD, P( 0,0), "$D$", tl);
+  label(pE, P( 0,-2), "$E$", b);
+  label(pF, P( 4, 4), "$F$", t);
+
+  tikz_format();
+  end();
+}

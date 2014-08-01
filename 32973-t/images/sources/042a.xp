@@ -1,0 +1,71 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+int N(16);
+
+double theta(const P& tail, const P& head)
+{
+  P tmp(head - tail);
+  return Atan2(tmp.x2(), tmp.x1());
+}
+
+int main()
+{
+  picture(P(0,0), P(5,1.5), "6 x 1.8in");
+
+  begin();
+  degrees();
+  bold();
+
+  P pA1(0,1.5), pA2(0,1),
+    pB1(-1.75,0), pB2(-2,0),
+    pC1(1.25,0), pC2(-1,0);
+
+  screen scr1(pB1, pA1 + pC1);
+  screen scr2(pB2, P(1, 1));
+
+  activate(scr1);
+  line(pA1, pB1);
+  line(pA1, pC1);
+  line(pB1, pC1);
+  line(O, pA1);
+
+  double rad1a(norm(pB1 - pA1)), rad1b(norm(pC1 - pA1));
+  dashed();
+  ellipse(pB1, rad1a*E_1, rad1a*E_2, 0, theta(pB1, pA1), N);
+  ellipse(pC1, rad1b*E_1, rad1b*E_2, theta(pC1, pA1), 180, N);
+  solid();
+
+  label(O, P(0,-2), "$D$", b);
+  label(pA1, P(0, 2), "$A$", t);
+  label(pB1, P(0,-2), "$B$", b);
+  label(pC1, P(0,-2), "$C$", b);
+  deactivate(scr1);
+  inset(scr1, P(0,0), P(2,1));
+
+
+
+  activate(scr2);
+  line(pA2, pB2);
+  line(pA2, pC2);
+  line(pB2, pC2 + P(norm(pC2 - pA2), 0));
+  line(O, pA2);
+
+  double rad2a(norm(pB2 - pA2)), rad2b(norm(pC2 - pA2));
+  dashed();
+  ellipse(pB2, rad2a*E_1, rad2a*E_2, 0, theta(pB2, pA2), N);
+  ellipse(pC2, rad2b*E_1, rad2b*E_2, 0, theta(pC2, pA2), N);
+  solid();
+
+  label(O, P(0,-2), "$D$", b);
+  label(pA2, P(0, 2), "$A$", t);
+  label(pB2, P(0,-2), "$B$", b);
+  label(pC2, P(0,-2), "$C'$", b);
+  deactivate(scr2);
+  inset(scr2, P(2.5,0), P(5.5,1));
+
+  tikz_format();
+  end();
+}

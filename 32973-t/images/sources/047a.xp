@@ -1,0 +1,43 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th1(-90), th2(35), th3(135);
+
+int main()
+{
+  picture(P(-2,-1), P(2,1.5), "3.6 x 2.25in");
+
+  begin();
+  degrees();
+  bold();
+
+  P pa(cis(th1)), pb(cis(th2)), pc(cis(th3));
+
+  Segment BC(pa, pa + J(pa)), CA(pb, pb + J(pb)), AB(pc, pc + J(pc));
+
+  P pA(CA*AB), pB(AB*BC), pC(BC*CA);
+
+  circle();
+  triangle(pA, pB, pC);
+  line(O, pa);
+  line(O, pb);
+  line(O, pc);
+
+  line(O, pA);
+  line(O, pB);
+  line(O, pC);
+
+  label(O, P(-8,2), "$O$", l);
+  label(pA, P(0,2), "$A$", t);
+  label(pB, P(0,-2), "$B$", b);
+  label(pC, P(0,-2), "$C$", b);
+
+  label(pa, P(0,-4), "$a$", b);
+  label(pb, P(2, 2), "$b$", tr);
+  label(pc, P(-2,2), "$c$", tl);
+
+  tikz_format();
+  end();
+}

@@ -1,0 +1,32 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th(37.5);
+
+int main()
+{
+  picture(P(0,0), P(1,0.6), "2.5 x 1.5in");
+
+  begin();
+  degrees();
+  bold();
+  double rad(Cos(th));
+  P pB(cis(th)), pC(rad,0);
+
+  line(O, P(1,0));
+  line(O, pB);
+  line(pB, pC);
+
+  dashed();
+  ellipse(O, E_1, E_2, 0, th, 15);
+  ellipse(O, rad*E_1, rad*E_2, 0, th, 15);
+
+  label(O, P(-2,-2), "$A$", b);
+  label(pB, P(0, 2), "$B$", t);
+  label(pC, P(0,-2), "$C$", b);
+
+  tikz_format();
+  end();
+}

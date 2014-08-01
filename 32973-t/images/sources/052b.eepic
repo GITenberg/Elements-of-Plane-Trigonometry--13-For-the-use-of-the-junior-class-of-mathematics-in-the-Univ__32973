@@ -1,0 +1,61 @@
+%% Generated from 052b.xp on Wed Jun 23 21:31:41 EDT 2010 by
+%% ePiX-1.2.4
+%% 
+%%   Cartesian bounding box: [0,5] x [-1,1.6]
+%%   Actual size: 5 x 2.6in
+%%   Figure offset: left by 0in, down by 0in
+%% 
+%% usepackages tikz
+%% 
+\xdefinecolor{rgb_000000}{rgb}{0,0,0}%
+\begin{tikzpicture}
+\pgfsetlinewidth{0.4pt}
+\useasboundingbox (0in,0in) rectangle (5in,2.6in);
+\pgfsetlinewidth{0.8pt}
+\draw (-0.179434in,1in)--(2.5in,1in)--(5.17943in,1in);
+\draw (0.5in,0.5in)--(2.125in,0.915in)--(3.75in,1.33in);
+\draw (3.75in,1.33in)--(2.875in,1.665in)--(2in,2in);
+\draw (2in,2in)--(3.25in,2.25in)--(4.5in,2.5in);
+\draw (0.5in,1in)--(0.5in,0.75in)--(0.5in,0.5in);
+\draw (3.75in,1in)--(3.75in,1.165in)--(3.75in,1.33in);
+\draw (2in,1in)--(2in,1.5in)--(2in,2in);
+\draw (4.5in,1in)--(4.5in,1.75in)--(4.5in,2.5in);
+\draw (0.5in,0.5in)--(0.517857in,0.5in);
+\draw (0.553571in,0.5in)--(0.571429in,0.5in);
+\draw (0.571429in,0.5in)--(0.589286in,0.5in);
+\draw (0.625in,0.5in)--(0.642857in,0.5in);
+\draw (0.642857in,0.5in)--(0.660714in,0.5in);
+\draw (0.696429in,0.5in)--(0.714286in,0.5in);
+\draw (0.714286in,0.5in)--(0.732143in,0.5in);
+\draw (0.767857in,0.5in)--(0.785714in,0.5in);
+\draw (0.785714in,0.5in)--(0.803571in,0.5in);
+\draw (0.839286in,0.5in)--(0.857143in,0.5in);
+\draw (0.857143in,0.5in)--(0.875in,0.5in);
+\draw (0.910714in,0.5in)--(0.928571in,0.5in);
+\draw (0.928571in,0.5in)--(0.946429in,0.5in);
+\draw (0.982143in,0.5in)--(1in,0.5in);
+\draw (1in,0.5in)--(1.01786in,0.5in);
+\draw (1.05357in,0.5in)--(1.07143in,0.5in);
+\draw (1.07143in,0.5in)--(1.08929in,0.5in);
+\draw (1.125in,0.5in)--(1.14286in,0.5in);
+\draw (1.14286in,0.5in)--(1.16071in,0.5in);
+\draw (1.19643in,0.5in)--(1.21429in,0.5in);
+\draw (1.21429in,0.5in)--(1.23214in,0.5in);
+\draw (1.26786in,0.5in)--(1.28571in,0.5in);
+\draw (1.28571in,0.5in)--(1.30357in,0.5in);
+\draw (1.33929in,0.5in)--(1.35714in,0.5in);
+\draw (1.35714in,0.5in)--(1.375in,0.5in);
+\draw (1.41071in,0.5in)--(1.42857in,0.5in);
+\draw (1.42857in,0.5in)--(1.44643in,0.5in);
+\draw (1.48214in,0.5in)--(1.5in,0.5in);
+\pgftext[at={\pgfpoint{0in}{1.02767in}}] {\makebox(0,0)[b]{\hbox{\color{rgb_000000}$X'$}}}
+\pgftext[at={\pgfpoint{5in}{1.02767in}}] {\makebox(0,0)[b]{\hbox{\color{rgb_000000}$X$}}}
+\pgftext[at={\pgfpoint{0.5in}{1.02767in}}] {\makebox(0,0)[b]{\hbox{\color{rgb_000000}$A'$}}}
+\pgftext[at={\pgfpoint{3.75in}{0.944652in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}$B'$}}}
+\pgftext[at={\pgfpoint{1.94465in}{1.02767in}}] {\makebox(0,0)[br]{\hbox{\color{rgb_000000}$C'$}}}
+\pgftext[at={\pgfpoint{4.5in}{0.944652in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}$D'$}}}
+\pgftext[at={\pgfpoint{0.5in}{0.444652in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}$A$}}}
+\pgftext[at={\pgfpoint{3.75in}{1.35767in}}] {\makebox(0,0)[bl]{\hbox{\color{rgb_000000}$B$}}}
+\pgftext[at={\pgfpoint{1.97233in}{2.02767in}}] {\makebox(0,0)[b]{\hbox{\color{rgb_000000}$C$}}}
+\pgftext[at={\pgfpoint{4.5in}{2.52767in}}] {\makebox(0,0)[b]{\hbox{\color{rgb_000000}$D$}}}
+\end{tikzpicture}

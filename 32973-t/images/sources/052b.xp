@@ -1,0 +1,50 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+void ray(const P& tail, const P& head, double t)
+{
+  line(tail, head + t*(head - tail));
+}
+
+int main()
+{
+  picture(P(0,-1), P(5,1.6), "5 x 2.6in");
+
+  begin();
+  degrees();
+  bold();
+
+  P pA(0.5,-0.5), pB(3.75,0.33), pC(2, 1), pD(4.5, 1.5);
+  P pAp(pA&E_1), pBp(pB&E_1), pCp(pC&E_1), pDp(pD&E_1);
+
+  line(P(xmin(),0), P(xmax(),0), 10);
+  line(pA, pB);
+  line(pB, pC);
+  line(pC, pD);
+
+  line(pAp, pA);
+  line(pBp, pB);
+  line(pCp, pC);
+  line(pDp, pD);
+
+  dashed();
+  dash_size(6);
+  line(pA, pA+E_1);
+
+  label(P(xmin(),0), P(0,2), "$X'$", t);
+  label(P(xmax(),0), P(0,2), "$X$", t);
+
+  label(pAp, P(0, 2), "$A'$", t);
+  label(pBp, P(0,-4), "$B'$", b);
+  label(pCp, P(-4,2), "$C'$", tl);
+  label(pDp, P(0,-4), "$D'$", b);
+
+  label(pA, P(0,-4), "$A$", b);
+  label(pB, P(0, 2), "$B$", tr);
+  label(pC, P(-2,2), "$C$", t);
+  label(pD, P(0, 2), "$D$", t);
+
+  tikz_format();
+  end();
+}

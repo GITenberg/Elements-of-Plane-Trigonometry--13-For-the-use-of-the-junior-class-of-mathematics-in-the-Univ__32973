@@ -1,0 +1,54 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P O(0,0);
+double th(50), MAX(1.25);
+
+int main()
+{
+  picture(P(-MAX,-MAX), P(MAX,MAX), "4.5 x 4.5in");
+
+  begin();
+  degrees();
+  bold();
+  P pA(1,0), pA2(-1,0), pB(cis(th)), pB1(cis(th+90)), pB2(-pB), pB3(-pB1);
+  P pC(0,1), pF(1, Tan(th)), pG(Cot(th), 1), pG2(-Tan(th), 1), pF2(1,-Cot(th));
+  P pH(MAX, 1), pH2(-MAX, 1), pT(1,1.1*MAX), pT2(1,-0.9*MAX);
+
+  circle();
+  line(pA, pA2);
+  line(pF, pB2);
+  line(O, pC);
+  line(pG2, pF2);
+
+  line(pH, pH2);
+  line(pT, pT2);
+
+  label(pA, P(-2,2), "$A$", tl);
+  label(pA2, P(2,2), "$A'$", tr);
+
+  label(pB, P(0, -6), "$B$", b);
+  label(pB1, P(4, 2), "$B'$", r);
+  label(pB2, P(1, 7), "$B''$", t);
+  label(pB3, P(-4,-3), "$B'''$", l);
+
+  label(pC, P(0,2), "$C$", t);
+
+  label(pF, P(-2,2), "$F$", l);
+  label(pF2, P(2,0), "$F'$", r);
+
+  label(pG, P(2,-2), "$G$", b);
+  label(pG2, P(0,2), "$G'$", t);
+
+  label(pH, P(0,2), "$H$", tl);
+  label(pH2, P(0,-2), "$H'$", b);
+
+  label(pT, P(-2,0), "$T$", bl);
+  label(pT2, P(2,0), "$T'$", tr);
+
+  label(O, P(0, -6), "$O$", b);
+
+  tikz_format();
+  end();
+}
