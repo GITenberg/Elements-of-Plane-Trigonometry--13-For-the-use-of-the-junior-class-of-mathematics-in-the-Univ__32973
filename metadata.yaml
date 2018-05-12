@@ -12,6 +12,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/36137
     wikipedia: http://en.wikipedia.org/wiki/Hugh_Blackburn
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/32973#Elements-of-Plane-Trigonometry--13-For-the-use-of-the-junior-class-of-mathematics-in-the-Univ_
 gutenberg_bookshelf: Mathematics
 gutenberg_issued: '2010-06-25'
 gutenberg_type: Text
