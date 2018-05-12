@@ -1,0 +1,29 @@
+_repo: Elements-of-Plane-Trigonometry--13-For-the-use-of-the-junior-class-of-mathematics-in-the-Univ__32973
+_version: 0.1.0
+covers:
+- cover_type: generated
+  image_path: cover.png
+creator:
+  author:
+    agent_name: Blackburn, Hugh
+    birthdate: 1823
+    deathdate: 1909
+    gutenberg_agent_id: '36137'
+    url: http://www.gutenberg.org/2009/agents/36137
+    wikipedia: http://en.wikipedia.org/wiki/Hugh_Blackburn
+description: ''
+gutenberg_bookshelf: Mathematics
+gutenberg_issued: '2010-06-25'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '32973'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Plane trigonometry'
+- !lcc 'QA'
+title: "Elements of Plane Trigonometry\r\nFor the use of the junior class of mathematics\
+  \ in the University of Glasgow"
+url: http://www.gutenberg.org/ebooks/32973
